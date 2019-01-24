@@ -109,7 +109,5 @@ RUN mkdir -p /var/lib/cassandra-reaper && \
 VOLUME /var/lib/cassandra-reaper
 VOLUME /etc/cassandra-reaper/shiro
 
-USER 1001
-
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["cassandra-reaper"]

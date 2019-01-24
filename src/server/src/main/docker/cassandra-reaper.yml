@@ -57,9 +57,16 @@ logging:
   level: ${REAPER_LOGGING_ROOT_LEVEL}
   loggers: ${REAPER_LOGGING_LOGGERS}
   appenders:
-    - type: console
-      logFormat: ${REAPER_LOGGING_APPENDERS_CONSOLE_LOG_FORMAT}
-      threshold: ${REAPER_LOGGING_APPENDERS_CONSOLE_THRESHOLD}
+     - type: file
+       currentLogFilename: /var/log/sf/cassandra-reaper.log
+       threshold: ALL
+       queueSize: 512
+       discardingThreshold: 0
+       archive: true
+       archivedLogFilenamePattern: /var/log/sf/cassandra-reaper-%d.log
+       archivedFileCount: 5
+       timeZone: UTC
+       logFormat: ${REAPER_LOGGING_APPENDERS_CONSOLE_LOG_FORMAT}
 
 server:
   type: default
